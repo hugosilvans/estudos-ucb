@@ -31,3 +31,7 @@ Navegue pela área de interesse e confira os arquivos de cada atividade. Este re
 
 As pastas foram agrupadas por finalidade. O conteúdo interno de cada atividade foi preservado, mantendo seus arquivos relacionados juntos. Para executar, abra o terminal na pasta específica do exercício ou projeto.
 
+
+## Origem e atribuição
+
+Este repositório foi iniciado como fork de [tioace/ucb](https://github.com/tioace/ucb). A base e o histórico incluem contribuições dos autores do projeto de origem. As alterações e a organização mantidas nesta conta podem ser consultadas no histórico de commits. Os créditos e os avisos de licença existentes devem ser preservados.
