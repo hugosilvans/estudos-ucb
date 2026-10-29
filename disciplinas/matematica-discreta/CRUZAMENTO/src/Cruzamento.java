@@ -1,12 +1,10 @@
 public class Cruzamento {
 
-    public static void main(String[] args) {
-        cruzamento();
-    }
+    public static void main(String[] args) { cruzamento(); }
 
     public static void cruzamento() {
         // Limites e tempos para as vias
-        int limiteParadoP = 60;  // Limite máximo de parada para a via principal
+        int limiteParadoP = 60; // Limite máximo de parada para a via principal
         int paradoP = 40, esperaP = 3, andandoP = 55;
         int paradoS = 47, esperaS = 3, andandoS = 39;
 
@@ -15,7 +13,8 @@ public class Cruzamento {
             for (int i = paradoS; i > 0; i--) {
                 System.out.println("Via Principal       Via Secundária");
                 System.out.printf("Andando: %d         Parado: %d\n", andandoP--, i);
-                if (andandoP == 0) break;  // Sai do loop se a via principal terminar de andar
+                if (andandoP == 0)
+                    break;    // Sai do loop se a via principal terminar de andar
                 dormir(1000); // Pausa de 1 segundo para simular o tempo real
             }
 
@@ -33,7 +32,8 @@ public class Cruzamento {
                 System.out.printf("Parado: %d          Andando: %d\n", i, andandoS--);
 
                 tempoParadoP++;
-                if (andandoS == 0 || tempoParadoP >= limiteParadoP) break;  
+                if (andandoS == 0 || tempoParadoP >= limiteParadoP)
+                    break;
                 // Sai se a via secundária terminar de andar ou atingir o limite
                 dormir(1000);
             }

@@ -1,12 +1,12 @@
 #include <stdio.h>
 
-float triangulo (float b, float h){
-    float a = (b * h)/2;
+float triangulo(float b, float h) {
+    float a = (b * h) / 2;
     return a;
 }
 
-int main(int argc, char const *argv[]){
-    float b, h; 
+int main(int argc, char const *argv[]) {
+    float b, h;
 
     printf("Digite a base: ");
     scanf("%f", &b);

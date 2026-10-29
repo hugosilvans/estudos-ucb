@@ -16,7 +16,7 @@ v 5. quantos processos estão relacionadas a causas de feminicídio;
 v 6. quantos processos estão relacionadas a causas ambientais;
 v 7. quantos processos estão relacionadas a causas de quilombolas;
 v 8. quantos processos estão relacionadas a causas indígenas;
-v 9. quantos processos envolve causas relacionadas a infância e juventude; 
+v 9. quantos processos envolve causas relacionadas a infância e juventude;
 
 10. o número de dias entre dt_recebimento e dt_resolvido;
 
@@ -24,50 +24,55 @@ v 11. o percentual de cumprimento da meta 1; e
 v 12. gerar um arquivo CSV com todos os processos julgados (mérito) na Meta 1
 */
 
+// função para contar o numero de processos de uma flag específica
 
-//função para contar o numero de processos de uma flag específica
-
-int contarPorFlag(Processo * processos, int tamanho, int tipo_flag){
+int contarPorFlag(Processo *processos, int tamanho, int tipo_flag) {
     int contador = 0;
-    for (int i = 0; i < tamanho; i++){
-        switch (tipo_flag){
-            case 1:
-                if (processos[i].flag_violencia_domestica == 1) contador++;
-                break;
+    for (int i = 0; i < tamanho; i++) {
+        switch (tipo_flag) {
+        case 1:
+            if (processos[i].flag_violencia_domestica == 1)
+                contador++;
+            break;
 
-            case 2:
-                if (processos[i].flag_feminicidio == 1) contador++;
-                break;
+        case 2:
+            if (processos[i].flag_feminicidio == 1)
+                contador++;
+            break;
 
-            case 3:
-                if(processos[i].flag_ambiental == 1) contador++;
-                break;
+        case 3:
+            if (processos[i].flag_ambiental == 1)
+                contador++;
+            break;
 
-            case 4:
-                if(processos[i].flag_indigenas == 1) contador ++;
-                break;
+        case 4:
+            if (processos[i].flag_indigenas == 1)
+                contador++;
+            break;
 
-            case 5:
-                if(processos[i].flag_quilombolas == 1) contador++;
-                break;
+        case 5:
+            if (processos[i].flag_quilombolas == 1)
+                contador++;
+            break;
 
-            case 6:
-                if(processos[i].flag_infancia == 1) contador++;
-                break;
-            }
+        case 6:
+            if (processos[i].flag_infancia == 1)
+                contador++;
+            break;
         }
+    }
     return contador;
 }
 
-//função para calcular o percentual de cumprimento Meta1
+// função para calcular o percentual de cumprimento Meta1
 
-double calcularMeta1(Processo * processos, int tamanho){
+double calcularMeta1(Processo *processos, int tamanho) {
     long long cnm1_total = 0;
     long long julgadom1_total = 0;
     long long desm1_total = 0;
     long long susm1_total = 0;
 
-    for (int i = 0; i < tamanho; i++){
+    for (int i = 0; i < tamanho; i++) {
         cnm1_total += processos[i].cnm1;
         julgadom1_total += processos[i].julgadom1;
         desm1_total += processos[i].desm1;
@@ -76,95 +81,93 @@ double calcularMeta1(Processo * processos, int tamanho){
 
     double denominador = (double)(cnm1_total + desm1_total - susm1_total);
 
-    if (denominador == 0){
+    if (denominador == 0) {
         printf("Aviso: Denominador 0. Nao foi possivel calcular\n");
         return 0.0;
     }
     return ((double)julgadom1_total / denominador) * 100.0;
-
 }
 
+int ContarLinha(char *arquivo) {
 
-int ContarLinha(char * arquivo){
-
-    FILE *fp = fopen(arquivo, "r"); 
-    if (fp == NULL){
+    FILE *fp = fopen(arquivo, "r");
+    if (fp == NULL) {
         printf("ERRO: arquivo nao pode ser aberto!\n");
-        exit(1); 
-    }    
-    
+        exit(1);
+    }
+
     // --- 1ª PASSAGEM: contar linhas ---
     int count = 0;
     char buffer[1024];
     fgets(buffer, sizeof(buffer), fp); // pula o cabeçalho
     while (fgets(buffer, sizeof(buffer), fp) != NULL) {
         count++;
-    }    
+    }
     rewind(fp); // volta ao início
     fclose(fp);
-    
-    return count; 
-}    
 
+    return count;
+}
 
-Processo * lerDados(char * arquivo){
-    
-    printf("Arquivo a ser aberto: %s\n", arquivo); 
-    FILE *fp = fopen(arquivo, "r"); 
-    if (fp == NULL){
+Processo *lerDados(char *arquivo) {
+
+    printf("Arquivo a ser aberto: %s\n", arquivo);
+    FILE *fp = fopen(arquivo, "r");
+    if (fp == NULL) {
         printf("ERRO: arquivo nao pode ser aberto!\n");
-        exit(1); 
+        exit(1);
     }
-    
+
     int tamanho = ContarLinha(arquivo);
     printf("Encontradas %d linhas de dados\n", tamanho);
-    
-    Processo * x = malloc(tamanho * sizeof(Processo)); 
+
+    Processo *x = malloc(tamanho * sizeof(Processo));
     memset(x, 0, tamanho * sizeof(Processo));
-    
-    char cabecalho[1024]; 
+
+    char cabecalho[1024];
     fgets(cabecalho, sizeof(cabecalho), fp);
-    
+
     int i = 0;
     char linha[1024];
-    
+
     // Lê linha por linha e depois usa sscanf
     while (fgets(linha, sizeof(linha), fp) != NULL && i < tamanho) {
         // Remove quebras de linha
         linha[strcspn(linha, "\r\n")] = '\0';
-        
+
         // Substitui campos vazios por "0"
         char temp_linha[1024];
         strcpy(temp_linha, linha);
         char *ptr = temp_linha;
         while (*ptr) {
-            if (*ptr == ';' && (*(ptr+1) == ';' || *(ptr+1) == '\0')) {
+            if (*ptr == ';' && (*(ptr + 1) == ';' || *(ptr + 1) == '\0')) {
                 memmove(ptr + 2, ptr + 1, strlen(ptr + 1) + 1);
                 *(ptr + 1) = '0';
             }
             ptr++;
         }
-        
-    // Usa sscanf para ler
-    int result = sscanf(temp_linha, "%d;%[^;];%[^;];%[^;];%[^;];%[^;];%d;%d;%d;%[^;];%d;%d;%d;%d;%d;%d;%d;%d;%[^;];%d;%d;%d;%d;%d;%d;%d;%d",
-        &x[i].id_processo, 
-        x[i].numero_sigilo, x[i].sigla_grau, x[i].procedimento, 
-        x[i].ramo_justica, x[i].sigla_tribunal, &x[i].id_tribunal, 
-        &x[i].recurso, &x[i].id_ultimo_oj, x[i].dt_recebimento, 
-        &x[i].id_ultima_classe, &x[i].flag_violencia_domestica, 
-        &x[i].flag_feminicidio, &x[i].flag_ambiental, &x[i].flag_quilombolas, 
-        &x[i].flag_indigenas, &x[i].flag_infancia, &x[i].decisao, 
-        x[i].dt_resolvido, &x[i].cnm1, &x[i].primeirasentm1, &x[i].baixm1, 
-        &x[i].decm1, &x[i].mpum1, &x[i].julgadom1, &x[i].desm1, &x[i].susm1);
-        
+
+        // Usa sscanf para ler
+        int result =
+            sscanf(temp_linha,
+                   "%d;%[^;];%[^;];%[^;];%[^;];%[^;];%d;%d;%d;%[^;];%d;%d;%d;%d;%d;%d;%d;%d;%[^;];%"
+                   "d;%d;%d;%d;%d;%d;%d;%d",
+                   &x[i].id_processo, x[i].numero_sigilo, x[i].sigla_grau, x[i].procedimento,
+                   x[i].ramo_justica, x[i].sigla_tribunal, &x[i].id_tribunal, &x[i].recurso,
+                   &x[i].id_ultimo_oj, x[i].dt_recebimento, &x[i].id_ultima_classe,
+                   &x[i].flag_violencia_domestica, &x[i].flag_feminicidio, &x[i].flag_ambiental,
+                   &x[i].flag_quilombolas, &x[i].flag_indigenas, &x[i].flag_infancia, &x[i].decisao,
+                   x[i].dt_resolvido, &x[i].cnm1, &x[i].primeirasentm1, &x[i].baixm1, &x[i].decm1,
+                   &x[i].mpum1, &x[i].julgadom1, &x[i].desm1, &x[i].susm1);
+
         if (result >= 20) {
             i++;
         }
     }
-        
-        fclose(fp);
-        printf("Registros lidos com sucesso: %d\n", i);
-        return x;
+
+    fclose(fp);
+    printf("Registros lidos com sucesso: %d\n", i);
+    return x;
 }
 
 // Função para converter data no formato "YYYY-MM-DD" para time_t
@@ -172,17 +175,16 @@ time_t converterData(const char *data_str) {
     if (data_str == NULL || strlen(data_str) == 0) {
         return 0;
     }
-    
+
     struct tm tm = {0};
     sscanf(data_str, "%d-%d-%d", &tm.tm_year, &tm.tm_mon, &tm.tm_mday);
     tm.tm_year -= 1900; // Ano desde 1900
     tm.tm_mon -= 1;     // Mês de 0-11
-    
+
     return mktime(&tm);
 }
 
-
-int antigo(Processo * processos, int tamanho) {
+int antigo(Processo *processos, int tamanho) {
     if (tamanho == 0 || processos == NULL) {
         printf("Nenhum processo encontrado.\n");
         return -1;
@@ -203,7 +205,6 @@ int antigo(Processo * processos, int tamanho) {
     return id_mais_antigo;
 }
 
-
 // Função para calcular diferença em dias entre recebimento e resolvido
 int diasEntreDatas(Processo p) {
     time_t data_receb = converterData(p.dt_recebimento);
@@ -214,5 +215,5 @@ int diasEntreDatas(Processo p) {
     }
 
     double diff = difftime(data_res, data_receb) / (60 * 60 * 24);
-    return (int) diff;
+    return (int)diff;
 }

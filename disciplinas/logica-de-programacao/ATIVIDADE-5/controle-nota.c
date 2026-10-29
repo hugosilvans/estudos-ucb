@@ -1,48 +1,47 @@
 #include <stdio.h>
 
-int main(int argc, char const *argv[])
-{
-    int a, b; 
-    float somador = 0; 
-    float maior = 0;  
+int main(int argc, char const *argv[]) {
+    int a, b;
+    float somador = 0;
+    float maior = 0;
     float menor = 10;
-    int aprovado = 0; 
+    int aprovado = 0;
     float media, nota;
     printf("Digite a quantidade de alunos: ");
     scanf("%d", &a);
-	printf("\n");
-	
-	float notas[a];
-    for (int i = 0; i < a; i++){
+    printf("\n");
+
+    float notas[a];
+    for (int i = 0; i < a; i++) {
         printf("Digite a nota do aluno: ");
-        scanf("%f", &nota); 
-	
-        while (nota < 0 || nota > 10);{
+        scanf("%f", &nota);
+
+        while (nota < 0 || nota > 10)
+            ;
+        {
             printf("Nota invalida! Digite a nota novamente: ");
             scanf("%f", &nota);
         }
-        
-        notas[i] = nota; 
-        
 
-	        if(nota >= 6){
-	            aprovado ++;
-	        }
+        notas[i] = nota;
 
-	        if(nota > maior){
-	            maior = nota;
-	        }
+        if (nota >= 6) {
+            aprovado++;
+        }
 
-	        if(nota < menor){
-	            menor = nota;
-	        }
+        if (nota > maior) {
+            maior = nota;
+        }
 
-	        somador += nota; 			
-		
-	}
+        if (nota < menor) {
+            menor = nota;
+        }
+
+        somador += nota;
+    }
 
     media = somador / a;
-    
+
     printf("\n\n-------------------------------------\n\n");
     printf("Media geral: %.2f\n", media);
     printf("Maior nota: %.2f\n", maior);
@@ -59,7 +58,6 @@ int main(int argc, char const *argv[])
 
     return 0;
 }
-
 
 /* Solicite ao usuário o número de alunos da turma.
     Leia as notas dos alunos (valores entre 0.0 e 10.0), armazenando-as em um vetor de float.

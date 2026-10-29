@@ -8,26 +8,25 @@
 #define EM_ANDAMENTO 1
 #define FEITO 2
 
-typedef struct{
+typedef struct {
     /* data */
-    char Titulo [TAM_TITULO];
-    char Responsavel [TAM_NOME];
-    int Status; 
-    float Progresso; 
-    int Avaliacao; 
+    char Titulo[TAM_TITULO];
+    char Responsavel[TAM_NOME];
+    int Status;
+    float Progresso;
+    int Avaliacao;
 } Tarefa;
-
 
 typedef struct {
     /* data */
-    Tarefa * Dados;
-    int Capacidade; 
-    int Tamanho; 
+    Tarefa *Dados;
+    int Capacidade;
+    int Tamanho;
 } Lista;
 
-Lista * CriarLista(int C); 
-void DestruirLista(Lista * L);
-void AdicionarTarefa(Lista * L, Tarefa T);
+Lista *CriarLista(int C);
+void DestruirLista(Lista *L);
+void AdicionarTarefa(Lista *L, Tarefa T);
 
 void GerarHTMLTabela(Lista *Lista, char *CaminhoArquivo);
 #endif

@@ -4,7 +4,7 @@
 
 #include "tarefa.h"
 
-int main(int argc, char const *argv[]){
+int main(int argc, char const *argv[]) {
     Tarefa T1 = {"Entrega do relatório de BD", "Rafael Souza", FEITO, 1.00, 4};
     Tarefa T2 = {"Revisão do código do sistema", "Carlos Henrique", FEITO, 1.00, 5};
     Tarefa T3 = {"Criação de mockups para o app", "Juliana Ribeiro", EM_ANDAMENTO, 0.40, 3};
@@ -16,7 +16,7 @@ int main(int argc, char const *argv[]){
     Tarefa T9 = {"Apresentação para o cliente", "Bianca Torres", FEITO, 1.00, 5};
     Tarefa T10 = {"Correção de bugs críticos", "João Victor", EM_ANDAMENTO, 0.30, 5};
 
-    Lista * Planner = CriarLista(200); 
+    Lista *Planner = CriarLista(200);
 
     AdicionarTarefa(Planner, T1);
     AdicionarTarefa(Planner, T2);
@@ -29,17 +29,16 @@ int main(int argc, char const *argv[]){
     AdicionarTarefa(Planner, T9);
     AdicionarTarefa(Planner, T10);
 
-    for (int i = 0; i < Planner->Tamanho; i++){
+    for (int i = 0; i < Planner->Tamanho; i++) {
         /* code */
         printf("%d\t", i);
-        printf("%s\t", Planner); 
+        printf("%s\t", Planner);
     }
-    
 
     GerarHTMLTabela(Planner, "Gerar Tabela HTML");
 
     DestruirLista(Planner);
-    printf("%d\n", Planner); 
+    printf("%d\n", Planner);
 
     return 0;
 }

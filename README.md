@@ -35,3 +35,11 @@ As pastas foram agrupadas por finalidade. O conteúdo interno de cada atividade 
 ## Origem e atribuição
 
 Este repositório foi iniciado como fork de [tioace/ucb](https://github.com/tioace/ucb). A base e o histórico incluem contribuições dos autores do projeto de origem. As alterações e a organização mantidas nesta conta podem ser consultadas no histórico de commits. Os créditos e os avisos de licença existentes devem ser preservados.
+
+## Guia do código
+
+Consulte [GUIA_CODIGO.md](GUIA_CODIGO.md) para localizar os módulos, entender as convenções e estudar as alterações.
+
+## Verificação dos exercícios C/C++
+
+Com Python, GCC e G++ disponíveis, execute `python scripts/verificar_sintaxe.py`. A verificação trata cada fonte separadamente; ela não substitui a execução de exemplos nem a compilação dos projetos Java.

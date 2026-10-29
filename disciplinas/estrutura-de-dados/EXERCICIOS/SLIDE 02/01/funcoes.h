@@ -1,5 +1,5 @@
 typedef struct {
-    int id; 
+    int id;
     char nome[50];
-    int idade; 
+    int idade;
 } Pessoa;

@@ -1,14 +1,13 @@
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
 
-float quadrado (float a){
+float quadrado(float a) {
     float ar = pow(a, 2);
-    return ar; 
+    return ar;
 }
 
-int main(int argc, char const *argv[])
-{
-    float a; 
+int main(int argc, char const *argv[]) {
+    float a;
 
     printf("Digite o lado: ");
     scanf("%f", &a);

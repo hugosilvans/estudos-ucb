@@ -1,13 +1,12 @@
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
 
-float circulo (float pi, float r){
+float circulo(float pi, float r) {
     float a = pi * pow(r, 2);
-    return a; 
+    return a;
 }
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const *argv[]) {
     float pi, r;
 
     pi = 3.14;

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 #include <string.h>
+#include <time.h>
 #include <unistd.h>
 
 #define NUMEROS "0123456789"
@@ -10,12 +10,16 @@
 #define SIMBOLOS "!@#$%^&*()_+-=[]{}|;:,.<>?/"
 #define ARQUIVO_SENHAS "senhas.txt"
 
-void gerarSenha(int tamanho, int incluir_numeros, int incluir_maiusculas, int incluir_simbolos, char *senha) {
-    char conjunto[256] = MINUSCULAS; // Sempre inclui minúsculas
+void gerarSenha(int tamanho, int incluir_numeros, int incluir_maiusculas, int incluir_simbolos,
+                char *senha) {
+    char conjunto[256] = MINUSCULAS; // Sempre inclui minÃºsculas
 
-    if (incluir_numeros) strcat(conjunto, NUMEROS);
-    if (incluir_maiusculas) strcat(conjunto, MAIUSCULAS);
-    if (incluir_simbolos) strcat(conjunto, SIMBOLOS);
+    if (incluir_numeros)
+        strcat(conjunto, NUMEROS);
+    if (incluir_maiusculas)
+        strcat(conjunto, MAIUSCULAS);
+    if (incluir_simbolos)
+        strcat(conjunto, SIMBOLOS);
 
     srand(time(NULL) + getpid());
 
@@ -39,75 +43,72 @@ void salvarSenha(const char *nome, const char *usuario, const char *senha) {
 int main() {
     int tamanho, opcao;
     char nome[50], usuario[50], senha[100];
-	int incluir_numeros;
-	int incluir_maiusculas;
-	int incluir_simbolos;
-	
+    int incluir_numeros;
+    int incluir_maiusculas;
+    int incluir_simbolos;
+
     printf("=== GERADOR DE SENHAS SEGURAS ===\n\n");
 
-	do{
-	   
-    printf("Nome/Descricao da senha (ex: 'Email Google'): ");
-    scanf(" %[^\n]", nome); // Lê até a quebra de linha
+    do {
 
-    printf("Usuario/Login associado: ");
-    scanf(" %[^\n]", usuario);
+        printf("Nome/Descricao da senha (ex: 'Email Google'): ");
+        scanf(" %[^\n]", nome); // LÃª atÃ© a quebra de linha
 
-    printf("Tamanho da senha: ");
-    scanf("%d", &tamanho);
-    
-    printf("\n\n---------------------------------------\n\n");
+        printf("Usuario/Login associado: ");
+        scanf(" %[^\n]", usuario);
 
-    printf("Incluir numeros? \n1-Sim   \n2-Nao\n\nEscolha: ");
-    scanf("%d", &opcao);
-    printf("\n");
-    
-    if(opcao == 1){
-		incluir_numeros = 1;
-	} else {
-		incluir_numeros = 0;
-	}
-    
+        printf("Tamanho da senha: ");
+        scanf("%d", &tamanho);
 
-    printf("Incluir letras maiusculas? \n1-Sim  \n2-Nao\n\nEscolha: ");
-    scanf("%d", &opcao);
-    printf("\n");
-    
-	if(opcao == 1){
-    	incluir_maiusculas = 1;	
-	} else {
-		incluir_maiusculas = 0;	
-	}
-	
+        printf("\n\n---------------------------------------\n\n");
 
-    printf("Incluir simbolos? \n1-Sim  \n2-Nao\n\nEscolha: ");
-    scanf("%d", &opcao);
-    printf("\n");
-    
-	if(opcao == 1){
-	    incluir_simbolos = 1;    	
-	} else {
-		incluir_simbolos = 0;    	
-	}
+        printf("Incluir numeros? \n1-Sim   \n2-Nao\n\nEscolha: ");
+        scanf("%d", &opcao);
+        printf("\n");
 
+        if (opcao == 1) {
+            incluir_numeros = 1;
+        } else {
+            incluir_numeros = 0;
+        }
 
-    gerarSenha(tamanho, incluir_numeros, incluir_maiusculas, incluir_simbolos, senha);
-    printf("\n\n---------------------------------------\n\n");
-	printf("\nSenha gerada: %s\n", senha);
-	printf("\n\n---------------------------------------\n\n");
-    salvarSenha(nome, usuario, senha);
-	
-	printf("\n\n---------------------------------------\n\n");
-	printf("Deseja ter outra senha? \n1-Sim \n2-Nao\n\n");
-	printf("Escolha: ");
-	scanf("%d", &opcao);
-	printf("\n\n---------------------------------------\n\n");
-	
-	if(opcao == 2){
-		break;
-	}
-	
-	} while (opcao == 1 || opcao == 2);
-	
+        printf("Incluir letras maiusculas? \n1-Sim  \n2-Nao\n\nEscolha: ");
+        scanf("%d", &opcao);
+        printf("\n");
+
+        if (opcao == 1) {
+            incluir_maiusculas = 1;
+        } else {
+            incluir_maiusculas = 0;
+        }
+
+        printf("Incluir simbolos? \n1-Sim  \n2-Nao\n\nEscolha: ");
+        scanf("%d", &opcao);
+        printf("\n");
+
+        if (opcao == 1) {
+            incluir_simbolos = 1;
+        } else {
+            incluir_simbolos = 0;
+        }
+
+        gerarSenha(tamanho, incluir_numeros, incluir_maiusculas, incluir_simbolos, senha);
+        printf("\n\n---------------------------------------\n\n");
+        printf("\nSenha gerada: %s\n", senha);
+        printf("\n\n---------------------------------------\n\n");
+        salvarSenha(nome, usuario, senha);
+
+        printf("\n\n---------------------------------------\n\n");
+        printf("Deseja ter outra senha? \n1-Sim \n2-Nao\n\n");
+        printf("Escolha: ");
+        scanf("%d", &opcao);
+        printf("\n\n---------------------------------------\n\n");
+
+        if (opcao == 2) {
+            break;
+        }
+
+    } while (opcao == 1 || opcao == 2);
+
     return 0;
 }

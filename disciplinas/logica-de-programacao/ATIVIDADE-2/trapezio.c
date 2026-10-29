@@ -1,13 +1,12 @@
 #include <stdio.h>
 
-float trapezio (float B, float b, float h){
+float trapezio(float B, float b, float h) {
     float a = ((B + b) * h) / 2;
-    return a; 
+    return a;
 }
 
-int main(int argc, char const *argv[])
-{
-    float a, b ,c;
+int main(int argc, char const *argv[]) {
+    float a, b, c;
 
     printf("Digite a base maior: ");
     scanf("%f", &a);

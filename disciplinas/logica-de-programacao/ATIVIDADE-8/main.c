@@ -1,20 +1,19 @@
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
 
-typedef struct{
+typedef struct {
     float x;
-    float y; 
+    float y;
 } Ponto;
 
-float distancia (Ponto p1, Ponto p2){
+float distancia(Ponto p1, Ponto p2) {
     float distancia = sqrt(pow((p2.x - p1.x), 2) + pow((p2.y - p1.y), 2));
 
-    return distancia; 
+    return distancia;
 }
 
-
-int main(int argc, char const *argv[]){
-    Ponto p1, p2; 
+int main(int argc, char const *argv[]) {
+    Ponto p1, p2;
 
     if (argc != 5) {
         printf("Uso: %s x1 y1 x2 y2\n", argv[0]);
@@ -28,11 +27,12 @@ int main(int argc, char const *argv[]){
 
     p1.x = atof(argv[1]);
     p1.y = atof(argv[2]);
-    p2.x = atof(argv[3]);   
+    p2.x = atof(argv[3]);
     p2.y = atof(argv[4]);
-    
-    float d = distancia(p1,p2);
-    printf("\nA distancia entre os pontos (%.2f, %.2f) e (%.2f, %.2f) eh: %.2f\n\n", p1.x, p1.y, p2.x, p2.y, d);
-    
+
+    float d = distancia(p1, p2);
+    printf("\nA distancia entre os pontos (%.2f, %.2f) e (%.2f, %.2f) eh: %.2f\n\n", p1.x, p1.y,
+           p2.x, p2.y, d);
+
     return 0;
 }

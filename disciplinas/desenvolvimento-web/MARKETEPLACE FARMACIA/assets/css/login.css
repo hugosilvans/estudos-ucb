@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url(menu.css);
 
-
 /*
 *{
   margin: 0;
@@ -10,8 +9,7 @@
   font-family: 'Nunito Sans', sans-serif;
 }*/
 
-
-.container{
+.container {
   height: 100vh;
   width: 100%;
   display: flex;
@@ -19,7 +17,7 @@
   justify-content: center;
 }
 
-.form{
+.form {
   max-width: 480px;
   width: 100%;
   padding: 30px;
@@ -28,33 +26,32 @@
   border-radius: 6px;
 }
 
-h2{
+h2 {
   font-size: 28px;
   font-weight: 600;
   color: black;
   text-align: center;
-
 }
 
-form{
+form {
   margin-top: 30px;
 }
 
-form .field{
+form .field {
   position: relative;
   height: 45px;
   width: 100%;
   margin-top: 20px;
 }
 
-.field input{
+.field input {
   height: 100%;
   width: 100%;
-  border: 1px solid #CACACA;
+  border: 1px solid #cacaca;
   padding: 0 15px;
 }
 
-.eye-icon{
+.eye-icon {
   position: absolute;
   top: 50%;
   right: 10px;
@@ -63,31 +60,32 @@ form .field{
   color: #8b8b8b;
 }
 
-.form-link{
+.form-link {
   text-align: center;
-  margin-top: 10px; 
+  margin-top: 10px;
 }
 
-.form-link a, .form-link span{
+.form-link a,
+.form-link span {
   font-size: 14px;
   font-weight: 400;
 }
 
-.form a{
+.form a {
   text-decoration: none;
-  color: #556DBA;
+  color: #556dba;
 }
 
-.form a:hover{
+.form a:hover {
   text-decoration: underline;
 }
 
-.entrar-field input:hover{
-  background: #556DBA;
+.entrar-field input:hover {
+  background: #556dba;
   color: #fff;
 }
 
-.line{
+.line {
   position: relative;
   height: 1px;
   width: 100%;
@@ -95,7 +93,7 @@ form .field{
   background-color: #d4d4d4;
 }
 
-.line::before{
+.line::before {
   content: 'Ou';
   position: absolute;
   top: 50%;
@@ -104,6 +102,4 @@ form .field{
   background-color: #fff;
   color: #232836;
   padding: 0 15px;
-} 
-
-  
+}

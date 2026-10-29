@@ -1,3 +1,1 @@
-public class Colecao{
-
-}
+public class Colecao {}

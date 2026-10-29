@@ -1,13 +1,12 @@
 #include <stdio.h>
 
-float losango(float D, float d){
+float losango(float D, float d) {
     float a = (D * d) / 2;
     return a;
 }
 
-int main(int argc, char const *argv[])
-{
-    float a, b; 
+int main(int argc, char const *argv[]) {
+    float a, b;
 
     printf("Digite a diagonal maior: ");
     scanf("%f", &a);

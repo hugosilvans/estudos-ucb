@@ -4,42 +4,42 @@
 
 #include "musica.h"
 
-int main(int argc, char const *argv[]){
-    Item * D = criarItem ("Aquarela", "Toquinho", 1983); 
-    Item * E = criarItem ("Romaria", "Renato Teixeira", 1978); 
-    Item * F = criarItem ("Eu nasci há dez mil anos atrás", "Raul Seixas", 1976); 
-    Item * G = criarItem ("Cálice", "Chico Buarque e Gilberto Gil", 1978); 
-    Item * H = criarItem ("Tempo Perdido", "Renato Russo", 1986); 
+int main(int argc, char const *argv[]) {
+    Item *D = criarItem("Aquarela", "Toquinho", 1983);
+    Item *E = criarItem("Romaria", "Renato Teixeira", 1978);
+    Item *F = criarItem("Eu nasci há dez mil anos atrás", "Raul Seixas", 1976);
+    Item *G = criarItem("Cálice", "Chico Buarque e Gilberto Gil", 1978);
+    Item *H = criarItem("Tempo Perdido", "Renato Russo", 1986);
 
-    //Construindo o encadeamento D, F, G, H
+    // Construindo o encadeamento D, F, G, H
 
-    D->Anterior = NULL; 
-    D->Posterior = E; 
-    
-    E->Anterior = D; 
-    E->Posterior = F; 
-    
-    F->Anterior = E; 
-    F->Posterior = G; 
-    
-    G->Anterior = E; 
-    G->Posterior = H; 
-    
-    H->Anterior = G; 
-    H->Posterior = NULL; 
+    D->Anterior = NULL;
+    D->Posterior = E;
 
-    //Criando uma lista
-    Lista * PlayList = (Lista *) malloc(sizeof(Lista)); 
-    if (PlayList == NULL){
-        exit(1); 
+    E->Anterior = D;
+    E->Posterior = F;
+
+    F->Anterior = E;
+    F->Posterior = G;
+
+    G->Anterior = E;
+    G->Posterior = H;
+
+    H->Anterior = G;
+    H->Posterior = NULL;
+
+    // Criando uma lista
+    Lista *PlayList = (Lista *)malloc(sizeof(Lista));
+    if (PlayList == NULL) {
+        exit(1);
     }
 
     PlayList->Tamanho = 5;
-    PlayList->Inicio = D; 
-    PlayList->Fim = H; 
+    PlayList->Inicio = D;
+    PlayList->Fim = H;
 
-    exibirInicio(PlayList); 
-    exibirMusicas(PlayList, 1978); 
-    
+    exibirInicio(PlayList);
+    exibirMusicas(PlayList, 1978);
+
     return 0;
 }

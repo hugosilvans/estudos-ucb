@@ -1,7 +1,7 @@
+#include <locale.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <locale.h>
 
 typedef struct {
     char nome[100];
@@ -56,9 +56,10 @@ int main(int argc, char const *argv[]) {
     while (fgets(linha, sizeof(linha), lista)) {
         // Substituir o travessão UTF-8 por algo que possamos usar como delimitador
         char *separador = strstr(linha, "–"); // travessão (U+2013)
-        if (!separador) continue;
+        if (!separador)
+            continue;
 
-        *separador = '\0'; 
+        *separador = '\0';
 
         char telefone[30], nome[100];
         strncpy(telefone, linha, sizeof(telefone) - 1);
@@ -67,7 +68,6 @@ int main(int argc, char const *argv[]) {
         strncpy(nome, separador + 3, sizeof(nome) - 1); // pula "– "
         nome[sizeof(nome) - 1] = '\0';
 
-       
         nome[strcspn(nome, "\n")] = '\0';
 
         int ddd = 0;
@@ -92,7 +92,6 @@ int main(int argc, char const *argv[]) {
         free(agenda);
         return 1;
     }
-
 
     FILE *saida = fopen("lista_sorted.txt", "w");
     if (saida == NULL) {
