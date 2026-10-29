@@ -18,10 +18,10 @@ Há também um arquivo [Main.java](exercicios-avulsos/Main.java) na pasta de exe
 
 ## Repositórios relacionados
 
-- [Algoritmos e Lógica de Programação](https://github.com/hugosilvans/algoritmos-lp-1S-2025)
-- [Estrutura de Dados](https://github.com/hugosilvans/estrutura-de-dados-2-semestre2025)
-- [Programação Orientada a Objetos](https://github.com/hugosilvans/programacao_orientada_a_objetos_2semestre_2025)
-- [Programação Web](https://github.com/hugosilvans/programacao_web)
+- [Algoritmos e Lógica de Programação](https://github.com/hugosilvans/algoritmos-c)
+- [Estrutura de Dados](https://github.com/hugosilvans/estrutura-de-dados-c)
+- [Programação Orientada a Objetos](https://github.com/hugosilvans/estudos-poo-java)
+- [Programação Web](https://github.com/hugosilvans/estudos-web)
 
 ## Uso
 
