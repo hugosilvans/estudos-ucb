@@ -6,15 +6,15 @@ Coleção de materiais, exercícios e projetos acadêmicos.
 
 | Pasta | Área |
 | --- | --- |
-| [DEV FRONT](DEV%20FRONT/) | Desenvolvimento front-end |
-| [ED](ED/) | Estrutura de Dados |
-| [LPA 1](LPA%201/) | Lógica de Programação |
-| [MAT DISCRETA](MAT%20DISCRETA/) | Matemática Discreta |
-| [MONITORIA LP](MONITORIA%20LP/) | Monitoria de Lógica de Programação |
-| [POO](POO/) | Programação Orientada a Objetos |
-| [RESIDENCIA](RESIDENCIA/) | Materiais da residência |
+| [DEV FRONT](disciplinas/desenvolvimento-web/) | Desenvolvimento front-end |
+| [ED](disciplinas/estrutura-de-dados/) | Estrutura de Dados |
+| [LPA 1](disciplinas/logica-de-programacao/) | Lógica de Programação |
+| [MAT DISCRETA](disciplinas/matematica-discreta/) | Matemática Discreta |
+| [MONITORIA LP](monitoria/logica-de-programacao/) | Monitoria de Lógica de Programação |
+| [POO](disciplinas/programacao-orientada-a-objetos/) | Programação Orientada a Objetos |
+| [RESIDENCIA](residencia/) | Materiais da residência |
 
-Há também um arquivo [Main.java](Main.java) na raiz.
+Há também um arquivo [Main.java](exercicios-avulsos/Main.java) na pasta de exercícios avulsos.
 
 ## Repositórios relacionados
 
@@ -26,3 +26,8 @@ Há também um arquivo [Main.java](Main.java) na raiz.
 ## Uso
 
 Navegue pela área de interesse e confira os arquivos de cada atividade. Este repositório é uma coleção de estudos; as pastas não formam uma única aplicação.
+
+## Estrutura e versionamento
+
+As pastas foram agrupadas por finalidade. O conteúdo interno de cada atividade foi preservado, mantendo seus arquivos relacionados juntos. Para executar, abra o terminal na pasta específica do exercício ou projeto.
+
